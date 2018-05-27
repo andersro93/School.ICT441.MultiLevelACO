@@ -11,10 +11,10 @@ class WorldCitiesDataFetcher(object):
     Helper class for downloading the assets files
     """
 
-    save_location = "./assets/world_cities_pop.txt"
+    save_location: str = "./assets/world_cities_pop.txt"
     """ The location to unpack and save the downloaded file """
 
-    __download_url = "http://download.maxmind.com/download/worldcities/worldcitiespop.txt.gz"
+    __download_url: str = "http://download.maxmind.com/download/worldcities/worldcitiespop.txt.gz"
     """ Download url to the world cities dataset """
 
     def __init__(self):
