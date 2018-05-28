@@ -136,7 +136,7 @@ class MultilevelACO(object):
         """
         distance: float = 0.0
 
-        # Calculate the distance for each
+        # Calculate the distance for each visited city until end city
         for index, city in enumerate(ant.visited_cities):
 
             # Check if on last element
@@ -157,25 +157,29 @@ class MultilevelACO(object):
         :return: City
         """
 
-        if len(ant.visited_cities)+1 >= self.__cities_to_visit:
+        if len(ant.visited_cities) >= self.__cities_to_visit:
             return ant.destination_city
 
         if traverse_level is Country:
             country = random.choice(list(self.__database.countries.values()))           # type: Country
             next_city = list(country.get_cities())[0]
-            return next_city
         elif traverse_level is Region:
             visited_cities = len(ant.visited_cities)
             next_country = self.__country_sequence[visited_cities]                      # type: Country
             next_region = random.choice(next_country.get_regions())                     # type: Region
-            return next_region.get_cities()[0]
+            next_city = next_region.get_cities()[0]
         elif traverse_level is City:
             visited_cities = len(ant.visited_cities)
             next_region = self.__region_sequence[visited_cities]                        # type: Region
             next_city = random.choice(next_region.get_cities())                         # type: City
-            return next_city
+        else:
+            raise Exception(f"Unknown traverse level: {traverse_level}")
 
-        raise Exception(f"Unknown traverse level: {traverse_level}")
+        # Check if already visited the next city, if so, retry
+        if next_city in ant.visited_cities:
+            return self.__get_next_city(ant, traverse_level)
+
+        return next_city
 
     @staticmethod
     def __calculate_vector_distance(vector_x, vector_y):
