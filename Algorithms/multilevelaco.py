@@ -157,21 +157,40 @@ class MultilevelACO(object):
         :return: City
         """
 
+        # Check if we are to go to the destination
         if len(ant.visited_cities) >= self.__cities_to_visit:
             return ant.destination_city
 
+        # If we are locked to countries
         if traverse_level is Country:
+
+            # Get a random country
             country = random.choice(list(self.__database.countries.values()))           # type: Country
+
+            # Select the first city in the country
             next_city = list(country.get_cities())[0]
+
+        # If we are locked to regions
         elif traverse_level is Region:
+            # Get the country we are locked to visit
             visited_cities = len(ant.visited_cities)
             next_country = self.__country_sequence[visited_cities]                      # type: Country
+
+            # Get a random region from the country
             next_region = random.choice(next_country.get_regions())                     # type: Region
+
+            # Get the first city in the region
             next_city = next_region.get_cities()[0]
+
+        # If we are locked to cities
         elif traverse_level is City:
+            # Get the region we are locked to
             visited_cities = len(ant.visited_cities)
             next_region = self.__region_sequence[visited_cities]                        # type: Region
+
+            # Get a random city in the region
             next_city = random.choice(next_region.get_cities())                         # type: City
+
         else:
             raise Exception(f"Unknown traverse level: {traverse_level}")
 
