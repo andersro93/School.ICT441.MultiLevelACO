@@ -47,7 +47,7 @@ class MultilevelACO(object):
         :param origin: City
         :param destination: City
         :param visiting_cities: int
-        :return:
+        :return: list
         """
 
         # Assign amount of cities to visit to the class
