@@ -108,3 +108,4 @@ venv.bak/
 
 # Assets files
 assets/*
+!assets/.gitkeep

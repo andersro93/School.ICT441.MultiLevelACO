@@ -1,7 +1,5 @@
 import self as self
 
-from WorldCitiesDatabase import Region, Country
-
 
 class City(object):
     """
@@ -11,10 +9,10 @@ class City(object):
     name: str = None
     """ The name of the city """
 
-    __region: Region = None
+    __region = None
     """ The region this city belongs to """
 
-    __country: Country = None
+    __country = None
     """ The country this city belongs to """
 
     __population: int = None
@@ -26,9 +24,7 @@ class City(object):
     __coordinates_lat: float = None
     """ Latitude coordinates """
 
-    def __init__(self, name: str, region: Region, country: Country):
-        super(City, self).__init__()
-
+    def __init__(self, name: str, region, country):
         self.name = name
         self.__region = region
         self.__country = country
@@ -36,7 +32,7 @@ class City(object):
     def set_population(self, population: int) -> self:
         """
         Sets the city's population to given amount
-        :param population:
+        :param population: int
         :return: self
         """
         self.__population = population
@@ -45,8 +41,8 @@ class City(object):
     def set_coordinates(self, longitude: float, latitude: float) -> self:
         """
         Sets the city's coordinates to the given coordinates
-        :param longitude:
-        :param latitude:
+        :param longitude: float
+        :param latitude: float
         :return: self
         """
         self.__coordinates_long = longitude
@@ -67,14 +63,14 @@ class City(object):
         """
         return self.__coordinates_long, self.__coordinates_lat
 
-    def get_region(self) -> Region:
+    def get_region(self):
         """
         Returns the Region the city belongs to
         :return: Region
         """
         return self.__region
 
-    def get_country(self) -> Country:
+    def get_country(self):
         """
         Returns the Country the city belongs to
         :return: Country

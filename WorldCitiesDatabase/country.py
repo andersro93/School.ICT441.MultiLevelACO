@@ -1,7 +1,5 @@
 import self as self
 
-from WorldCitiesDatabase import Region, City
-
 
 class Country(object):
     """
@@ -12,21 +10,19 @@ class Country(object):
     name: str = None
     """ The name of the country """
 
-    __regions: list[Region] = None
+    __regions: list = None
     """ The regions within the country """
 
-    __cities: list[City] = None
+    __cities: list = None
     """ The cities within the country """
 
     def __init__(self, name: str):
-        super(Country, self).__init__()
-
         self.__regions = list()
         self.__cities = list()
 
         self.name = name
 
-    def add_region(self, region: Region) -> self:
+    def add_region(self, region) -> self:
         """
         Adds the region to the countries list of regions
         :param region: Region
@@ -35,7 +31,7 @@ class Country(object):
         self.__regions.append(region)
         return self
 
-    def add_city(self, city: City) -> self:
+    def add_city(self, city) -> self:
         """
         Adds a city to the country
         :param city: City
@@ -44,14 +40,14 @@ class Country(object):
         self.__cities.append(city)
         return self
 
-    def get_regions(self) -> list[Region]:
+    def get_regions(self) -> list:
         """
         Returns a list of all the regions in the country
         :return: list[Region]
         """
         return self.__regions
 
-    def get_cities(self) -> list[City]:
+    def get_cities(self) -> list:
         """
         Returns a list of all the cities in the country
         :return: list[City}
