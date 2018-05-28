@@ -3,12 +3,11 @@ import random
 import time
 
 import WorldCitiesDatabase
-from Algorithms import Algorithm
 from Ants import Ant
 from WorldCitiesDatabase import City, Region, Country
 
 
-class MultilevelACO(Algorithm):
+class MultilevelACO(object):
     """
     Multilevel ACO implementation for solving travel salesman problem
     """

@@ -1,6 +1,3 @@
-import self as self
-
-
 class Region(object):
     """
     Regions are a part of a country and holds all the cities within itself
@@ -27,7 +24,7 @@ class Region(object):
         """
         return self.__country
 
-    def add_city(self, city) -> self:
+    def add_city(self, city):
         """
         Adds the given city to the region
         :param city: City

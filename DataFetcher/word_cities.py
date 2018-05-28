@@ -3,8 +3,6 @@ import io
 import gzip
 from pathlib import Path
 
-import self as self
-
 
 class WorldCitiesDataFetcher(object):
     """
@@ -23,7 +21,7 @@ class WorldCitiesDataFetcher(object):
         """
         super(WorldCitiesDataFetcher, self).__init__()
 
-    def download_and_unpack_data(self) -> self:
+    def download_and_unpack_data(self):
         """
         Downloads and unpacks the compressed file into the path specified by class
         :return: self
@@ -39,7 +37,7 @@ class WorldCitiesDataFetcher(object):
         print('File and de-compression complete')
         return self
 
-    def ensure_assets_file_in_place(self) -> self:
+    def ensure_assets_file_in_place(self):
         """
         Ensures that the project has the assets files needed to continue
         :return: self

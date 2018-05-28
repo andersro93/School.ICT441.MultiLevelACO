@@ -1,6 +1,3 @@
-import self as self
-
-
 class City(object):
     """
     A city are a part of a region€
@@ -29,7 +26,7 @@ class City(object):
         self.__region = region
         self.__country = country
 
-    def set_population(self, population: int) -> self:
+    def set_population(self, population: int):
         """
         Sets the city's population to given amount
         :param population: int
@@ -38,7 +35,7 @@ class City(object):
         self.__population = population
         return self
 
-    def set_coordinates(self, longitude: float, latitude: float) -> self:
+    def set_coordinates(self, longitude: float, latitude: float):
         """
         Sets the city's coordinates to the given coordinates
         :param longitude: float

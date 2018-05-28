@@ -1,6 +1,3 @@
-import self as self
-
-
 class Country(object):
     """
     Country is an object that holds information about a given country.
@@ -22,7 +19,7 @@ class Country(object):
 
         self.name = name
 
-    def add_region(self, region) -> self:
+    def add_region(self, region):
         """
         Adds the region to the countries list of regions
         :param region: Region
@@ -31,7 +28,7 @@ class Country(object):
         self.__regions.append(region)
         return self
 
-    def add_city(self, city) -> self:
+    def add_city(self, city):
         """
         Adds a city to the country
         :param city: City
